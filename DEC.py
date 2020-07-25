@@ -438,17 +438,17 @@ def deep_learning_clustering(X_new, y):
 # For running reuters
 categories = ['earn', 'acq', 'money-fx', 'grain', 'crude', 'trade', 'interest', 'ship', 'wheat', 'corn']
 
-clusters = 4
+clusters = 10
 features_number = 2000
 
-data, target = fetching_dataset_reuters(categories[:4])
+data, target = fetching_dataset_reuters(categories)
 X = pre_processing_reuters(data)
 
 # # With feature selection
-# X_new = feature_selection(X, features_number)
+X_new = feature_selection(X, features_number)
 
 # # Without feature selection
-X_new = X
+# X_new = X
 
 X_new, target_new = removing_zero_rows(X_new, target)
 deep_learning_clustering(X_new, target_new)
